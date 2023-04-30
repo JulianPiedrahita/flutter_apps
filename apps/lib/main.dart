@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import 'package:apps/screens/screens.dart';
+import 'package:apps/widgets/widgets.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -9,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Splash Screen',
+      title: 'apps',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.purple,
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
@@ -31,36 +34,22 @@ class _MyHomePageState extends State<MyHomePage> {
     Timer(
         Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SecondScreen())));
+            context, MaterialPageRoute(builder: (context) => Login())));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        child: FlutterLogo(size: MediaQuery.of(context).size.height));
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.pink,
-          toolbarHeight: 100,
-          centerTitle: true,
-          title: Text("Splash screen checkkk")),
-      body: Center(
-          child: Text(
-        "working...",
-        textScaleFactor: 2,
-      )),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.pink[400],
-        onPressed: () {},
-        child: Icon(Icons.sports_handball_sharp),
-      ),
+    return Stack(
+      children: [
+        Background(),
+        SafeArea(
+            child: Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(top: 130),
+              child: Logo(),
+            ),
+          ),
+      ],
     );
   }
 }
