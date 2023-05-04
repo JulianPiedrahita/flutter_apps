@@ -9,12 +9,11 @@ class AuthBaground extends StatelessWidget {
     return Container(
       child: Stack(
         children: [
-          _Background_Login(),
+          const _Background_Login(),
           SafeArea(
             child: Container(
               width: double.infinity,
-              margin: EdgeInsets.only(top: 30, bottom: 20),
-              child: Logo(),
+              margin: const EdgeInsets.only(top: 30, bottom: 20),
             ),
           ),
           this.child,
@@ -30,19 +29,8 @@ class _Background_Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.asset('assets/fondo_uno.jpeg',
+      child: Image.asset('assets/fondo_morado.jpeg',
           width: double.infinity, height: double.infinity, fit: BoxFit.cover),
-    );
-  }
-}
-
-class Logo extends StatelessWidget {
-  const Logo({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return  Image.asset(
-      'assets/sophos.png',
     );
   }
 }
@@ -52,9 +40,7 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Image.asset('assets/fondo_uno.jpeg',
-          width: double.infinity, height: double.infinity, fit: BoxFit.cover),
-    );
+    return Image.asset('assets/fondo_app.jpg',
+        width: double.infinity, height: double.infinity, fit: BoxFit.cover);
   }
 }
